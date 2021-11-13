@@ -4,6 +4,14 @@ public class ArticleDTO { //ArticleRequest, ArticleResponse
     private long id;
     private String title;
 
+    public Article toArticle(){
+        return new Article(getId(), getTitle());
+    }
+
+    public static ArticleDTO of(Article article){
+        return new ArticleDTO(article.getId(), article.getTitle());
+    }
+
     public ArticleDTO() {
     }
 

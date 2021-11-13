@@ -8,7 +8,7 @@ import java.util.List;
 @Service
 class ArticleService {
 
-    private ArticleRepository repository;
+    private final ArticleRepository repository;
 
     @Autowired
     public ArticleService(ArticleRepository repository) {
@@ -16,7 +16,25 @@ class ArticleService {
     }
 
     public List<Article> getAll(){
-        return repository.getAll();
+        return repository.findAll();
+    }
+
+    public Article get(long id){
+        return repository.findById(id).orElseThrow();
+    }
+
+    public Article create(Article article){
+        return repository.save(article);
+    }
+
+    public Article update(long id, Article article){
+        Article articleFromDb = get(id);
+        articleFromDb.setTitle(article.getTitle());
+        return repository.save(articleFromDb);
+    }
+
+    public void delete(long id){
+        repository.delete(get(id));
     }
 
 }
