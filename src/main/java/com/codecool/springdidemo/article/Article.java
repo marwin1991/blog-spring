@@ -1,6 +1,8 @@
-package com.codecool.springdidemo;
+package com.codecool.springdidemo.article;
+
 
 public class Article {
+
     private final long id;
     private final String title;
 

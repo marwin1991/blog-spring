@@ -1,4 +1,4 @@
-package com.codecool.springdidemo;
+package com.codecool.springdidemo.article;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -10,23 +10,24 @@ import java.util.List;
 public class ArticleController {
 
     @GetMapping("/articles")
-    public List<Article> get(){
-        return Collections.singletonList(new Article(2, "test"));
+    public List<ArticleDTO> get(){
+        return Collections.singletonList(new ArticleDTO(2, "test"));
     }
 
     @GetMapping("/articles/{id}")
-    public Article get(@PathVariable long id){
-        return new Article(id, "test");
+    public ArticleDTO get(@PathVariable long id){
+        return new ArticleDTO(id, "test");
     }
 
     @PostMapping("/articles")
-    public Article create(@RequestBody Article article){
+    public ArticleDTO create(@RequestBody ArticleDTO article){
+        new Article(article.getId(), article.getTitle());
         System.out.println(article);
         return article;
     }
 
     @PutMapping("/articles/{id}")
-    public Article modify(@PathVariable long id, @RequestBody Article article){
+    public ArticleDTO modify(@PathVariable long id, @RequestBody ArticleDTO article){
         System.out.println(id);
         System.out.println(article);
         return article;

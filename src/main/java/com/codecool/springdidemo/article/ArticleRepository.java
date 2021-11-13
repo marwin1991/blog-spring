@@ -1,4 +1,4 @@
-package com.codecool.springdidemo;
+package com.codecool.springdidemo.article;
 
 import org.springframework.stereotype.Repository;
 

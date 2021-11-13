@@ -1,4 +1,4 @@
-package com.codecool.springdidemo;
+package com.codecool.springdidemo.article;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class ArticleService {
+class ArticleService {
 
     private ArticleRepository repository;
 
