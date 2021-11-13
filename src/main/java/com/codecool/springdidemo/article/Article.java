@@ -1,10 +1,23 @@
 package com.codecool.springdidemo.article;
 
+import javax.persistence.*;
 
+@Entity
 public class Article {
 
-    private final long id;
-    private final String title;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long id;
+
+    @Column(name = "some_title")
+    private String title;
+
+    private String content;
+
+    private String author;
+
+    public Article() {
+    }
 
     public Article(long id, String title) {
         this.id = id;
@@ -17,6 +30,14 @@ public class Article {
 
     public String getTitle() {
         return title;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     @Override
