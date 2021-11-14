@@ -1,5 +1,6 @@
-package com.codecool.springdidemo.comment;
+package com.codecool.springdidemo.comment.controller;
 
+import com.codecool.springdidemo.comment.Comment;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -11,7 +12,7 @@ import java.time.LocalDateTime;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class CommentDTO {
+class CommentDTO {
 
     private Long id;
     private String content;

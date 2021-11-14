@@ -1,11 +1,12 @@
 package com.codecool.springdidemo.comment;
 
+import com.codecool.springdidemo.article.Article;
 import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.time.LocalDateTime;
+
+import static javax.persistence.GenerationType.SEQUENCE;
 
 @Data
 @Entity
@@ -15,8 +16,12 @@ import java.time.LocalDateTime;
 public class Comment {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy=SEQUENCE, generator="COMMENT_SEQ")
     private Long id;
+
+    @ManyToOne
+    private Article article;
+
     private String content;
     private String author;
     private LocalDateTime creationDateTime;
