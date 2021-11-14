@@ -16,7 +16,7 @@ class ArticleService {
     }
 
     public List<Article> getAll(){
-        return repository.findAll();
+        return repository.findArticlesByTitleStartingWithOrderById("Ala");
     }
 
     public Article get(long id){

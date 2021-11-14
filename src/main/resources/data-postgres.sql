@@ -1,0 +1,1 @@
+INSERT INTO public.article(author, content, some_title) VALUES ('auto', 'connn', 'tttttt');

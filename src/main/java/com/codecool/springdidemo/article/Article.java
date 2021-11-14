@@ -7,6 +7,7 @@ import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.List;
 
+import static javax.persistence.GenerationType.IDENTITY;
 import static javax.persistence.GenerationType.SEQUENCE;
 
 @Data
@@ -17,7 +18,7 @@ import static javax.persistence.GenerationType.SEQUENCE;
 public class Article {
 
     @Id
-    @GeneratedValue(strategy=SEQUENCE, generator="ARTICLE_SEQ")
+    @GeneratedValue(strategy=IDENTITY)
     private long id;
 
     @Column(name = "some_title")

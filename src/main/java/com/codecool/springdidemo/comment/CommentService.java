@@ -40,11 +40,21 @@ public class CommentService {
         return comment;
     }
 
-    public Comment modify(long articleId, long commentId, Comment comment){
-        return null;
+    public Comment modify(long articleId, long commentId, Comment newData){
+        Comment commentFromDb = commentRepository.getById(commentId);
+        if(commentFromDb.getArticle().getId() != articleId){
+            throw new IllegalArgumentException("Wrong article ID!");
+        }
+        commentFromDb.modify(newData);
+        commentRepository.save(commentFromDb);
+        return commentFromDb;
     }
 
     public void delete(long articleId, long commentId){
-
+        Comment commentFromDb = commentRepository.getById(commentId);
+        if(commentFromDb.getArticle().getId() != articleId){
+            throw new IllegalArgumentException("Wrong article ID!");
+        }
+        commentRepository.delete(commentFromDb);
     }
 }
